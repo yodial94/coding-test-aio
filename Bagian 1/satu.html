@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menggabungkan 2 Array</title>
+</head>
+<body>
+    <h1>Menggabungkan 2 Array</h1>
+    <button onclick="gabungkanArray()">Gabungkan</button>
+    <p id="hasilGabungan"></p>
+
+    <script>
+        function gabungkanArray() {
+            const arrayPertama = [1, 2, 3];
+            const arrayKedua = ['x', 'y', 'z'];
+
+            const hasilGabungan = [...arrayPertama, ...arrayKedua];
+            document.getElementById("hasilGabungan").textContent = hasilGabungan.join(',');
+        }
+    </script>
+</body>
+</html>
+
