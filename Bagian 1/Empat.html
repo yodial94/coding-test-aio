@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapping Array Object</title>
+</head>
+<body>
+    <h1>Mapping Array Object</h1>
+    <button onclick="mappingArray()">Mapping</button>
+    <pre id="hasilMapping"></pre>
+
+    <script>
+        function mappingArray() {
+            var data = [
+                { code: '001', name: 'Yodi AIO' },
+            ];
+
+            var mappedData = data.map(item => {
+                return {
+                    ...item,
+                    customer: item.code + ' - ' + item.name
+                };
+            });
+
+            document.getElementById("hasilMapping").textContent = JSON.stringify(mappedData, null, 2);
+        }
+    </script>
+</body>
+</html>
