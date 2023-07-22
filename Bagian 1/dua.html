@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Looping Segitiga</title>
+</head>
+<body>
+    <h1>Pola Segitiga</h1>
+    <pre id="polaSegitiga"></pre>
+
+    <script>
+        function printTriangle(rows) {
+            let result = '';
+            for (let i = 0; i < rows; i++) {
+                // Menambahkan spasi di sebelah kiri segitiga
+                for (let j = 0; j < i; j++) {
+                    result += ' ';
+                }
+
+                // Menambahkan bintang segitiga
+                for (let k = 0; k < (2 * rows - 1) - 2 * i; k++) {
+                    result += '*';
+                }
+
+                // Pindah ke baris baru setelah setiap baris selesai
+                result += '\n';
+            }
+            return result;
+        }
+
+        // Panggil fungsi untuk mencetak segitiga dengan 5 baris
+        document.getElementById("polaSegitiga").textContent = printTriangle(5);
+    </script>
+</body>
+</html>
