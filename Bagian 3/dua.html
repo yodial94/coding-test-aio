@@ -35,6 +35,26 @@
                 document.getElementById("result").textContent = "Jumlah beli harus diisi dengan angka positif.";
                 return;
             }
+            const productData = dataProduct[selectedProduct];
+            const jumlahKarton = Math.floor(quantity / productData.isi);
+            const sisa = quantity % productData.isi;
+
+            let hargaTotal = jumlahKarton * productData.harga;
+            let rekomendasiJumlah = 0;
+
+            if (sisa > 0) {
+                hargaTotal += sisa * productData.harga;
+                rekomendasiJumlah = productData.isi - sisa;
+            }
+
+            document.getElementById("result").textContent = `
+                Product: ${productData.name}
+                Code: ${productData.code}
+                Jumlah Beli: ${quantity}
+                Jumlah Karton: ${jumlahKarton}
+                Harga Total: ${hargaTotal}
+                Rekomendasi Jumlah: ${rekomendasiJumlah}
+            `;
 
         }
     </script>
