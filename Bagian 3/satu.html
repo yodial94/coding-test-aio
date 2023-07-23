@@ -20,11 +20,11 @@
             let adjustedTotalOrder = totalOrder;
 
             if (adjustedTotalOrder < MOQ) {
-                // Jika total order kurang dari MOQ, tambahkan tonase hingga mencapai MOQ
+                // Jika total order kurang dari MOQ, tambahkan qty hingga mencapai MOQ
                 const shortfall = MOQ - adjustedTotalOrder;
                 adjustedTotalOrder += shortfall;
             } else if (adjustedTotalOrder > maxMOQ) {
-                // Jika total order lebih dari maxMOQ, kurangi atau tambahkan tonase untuk mencapai kelipatan dari MOQ
+                // Jika total order lebih dari maxMOQ, kurangi atau tambahkan qty untuk mencapai kelipatan dari MOQ
                 const excess = adjustedTotalOrder - maxMOQ;
                 adjustedTotalOrder -= excess;
                 if (adjustedTotalOrder % MOQ !== 0) {
