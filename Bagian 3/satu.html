@@ -11,7 +11,29 @@
     <p id="adjustedTotalOrder"></p>
 
     <script>
-        
+        function adjustTotalOrder() {
+            const MOQ = 21; // Minimum Order Quantity
+            const minMOQ = 21;
+            const maxMOQ = 24;
+
+            const totalOrder = parseInt(document.getElementById("totalOrder").value);
+            let adjustedTotalOrder = totalOrder;
+
+            if (adjustedTotalOrder < MOQ) {
+                // Jika total order kurang dari MOQ, tambahkan tonase hingga mencapai MOQ
+                const shortfall = MOQ - adjustedTotalOrder;
+                adjustedTotalOrder += shortfall;
+            } else if (adjustedTotalOrder > maxMOQ) {
+                // Jika total order lebih dari maxMOQ, kurangi atau tambahkan tonase untuk mencapai kelipatan dari MOQ
+                const excess = adjustedTotalOrder - maxMOQ;
+                adjustedTotalOrder -= excess;
+                if (adjustedTotalOrder % MOQ !== 0) {
+                    adjustedTotalOrder += MOQ - (adjustedTotalOrder % MOQ);
+                }
+            }
+
+            document.getElementById("adjustedTotalOrder").textContent = `Adjusted Total Order: ${adjustedTotalOrder} TON`;
+        }
     </script>
 
 </body>
