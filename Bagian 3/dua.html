@@ -8,16 +8,36 @@
     <label for="productSelect">Pilih Product:</label>
     <select id="productSelect">
         <option value="pocari">Pocari Sweat</option>
-        <option value="aquarius">Soyjoy</option>
-        <option value="aquarius">Oronamin-c</option>
+        <option value="soyjoy">Soyjoy</option>
+        <option value="oronamin">Oronamin-c</option>
         
     </select>
     <br>
-    <label for="quantity">Jumlah Beli:</label>
+    <label for="quantity">Jumlah Beli Satuan:</label>
     <input type="number" id="quantity">
     <button onclick="calculateOrder()">Calculate</button>
     <p id="result"></p>
-      
+
+    <script>
+        // Object data product
+        const dataProduct = {
+            pocari: { name: 'Pocari Sweat', code: 'P001', isi: 24, harga: 5000 },
+            soyjoy: { name: 'Soyjoy', code: 'A001', isi: 20, harga: 4500 },
+            oronamin: { name: 'Oronamin-c', code: 'Z001', isi: 20, harga: 3000 }
+        
+        };
+
+        function calculateOrder() {
+            const selectedProduct = document.getElementById("productSelect").value;
+            const quantity = parseInt(document.getElementById("quantity").value);
+
+            if (isNaN(quantity) || quantity <= 0) {
+                document.getElementById("result").textContent = "Jumlah beli harus diisi dengan angka positif.";
+                return;
+            }
+
+        }
     </script>
+</body>
 </body>
 </html>
