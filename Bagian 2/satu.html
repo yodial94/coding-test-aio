@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+    <label for="rows">Baris: </label>
+    <input type="number" id="rows">
+    <label for="columns">Kolom: </label>
+    <input type="number" id="columns">
+    <button onclick="generateTable()">Generate</button>
+    <table id="multiplicationTable"></table>
+
+    <script>
+        function generateTable() {
+            const rows = parseInt(document.getElementById("rows").value);
+            const columns = parseInt(document.getElementById("columns").value);
+            const table = document.getElementById("multiplicationTable");
+            let num = 1;
+
+            // Membuat baris dan sel pada tabel
+            for (let i = 0; i < rows; i++) {
+                const row = table.insertRow(i);
+                for (let j = 0; j < columns; j++) {
+                    const cell = row.insertCell(j);
+                    cell.textContent = num++;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
