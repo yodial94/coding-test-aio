@@ -11,7 +11,21 @@
     <div id="output"></div>
 
     <script>
+        function hitungPecahan() {
+            const nilaiMataUang = parseInt(document.getElementById("nilaiMataUang").value);
+            const denominations = [100000, 50000, 20000, 10000, 5000, 2000, 1000];
+            let hasilPecahan = '';
 
+            for (let i = 0; i < denominations.length; i++) {
+                const denomValue = denominations[i];
+                let count = Math.floor(nilaiMataUang / denomValue);
+                nilaiMataUang = nilaiMataUang % denomValue;
+
+                hasilPecahan += denomValue.toLocaleString() + ' = ' + count + '<br>';
+            }
+
+            document.getElementById("output").innerHTML = hasilPecahan;
+        }
     </script>
 </body>
 </html>
